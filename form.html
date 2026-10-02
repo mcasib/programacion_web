@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        formulario
+    </title>
+</head>
+<body>
+    <h1>
+        Formulario
+    </h1>
+
+    
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipiscing elit primis auctor, 
+        scelerisque curae iaculis egestas tincidunt habitasse nascetur posuere urna, 
+        donec varius litora aptent nulla netus eleifend fusce. 
+        Est consequat velit sodales conubia platea vel ultricies tellus, 
+        nullam ridiculus nulla curae quam nibh nascetur felis morbi, 
+        feugiat sem luctus fames gravida vivamus viverra. 
+        Tortor velit suspendisse cum magnis dui diam vel est auctor nullam netus, 
+        quam pharetra praesent integer vehicula viverra iaculis augue vivamus lacus, 
+        felis curae suscipit litora dictumst pulvinar nulla laoreet himenaeos cursus. 
+        Tincidunt ultricies lobortis egestas fusce diam mattis commodo iaculis curabitur, 
+        sagittis quis sem elementum est magnis eget.
+    </p>
+
+    <hr>
+    
+    <form>
+        <label for="name">
+            Ingrese su nombre:
+        </label>
+        <input type="text" id="name" name="name" placeholder="Ej. Mario" minlength="5" maxlength="15" required>
+            
+        <br><br>
+        <label for="email">
+            Correo electrónico:
+        </label>
+        <input type="email" id="email" name="email" placeholder="Ej. aquisi@gmail.com" required>
+
+        <br><br>
+        <label for="telephone">
+            Solo números:
+        </label>
+        <input type="text" id="telephone" name="telephone" pattern="[0-9]+" placeholder="Ej. 123456789" minlength="10" maxlength="10">
+
+        <br><br>
+        <label for="idUsuario">
+            ID de Usuario (No modificable):
+        </label>
+        <input type="text" id="idUsuario" name="idUsuario" value="WALL-E" disabled>
+
+        <br><br>
+        <button type="submit">
+            Enviar
+        </button>
+    </form>
+
+    <div id="enlaces">
+        <br>
+        <a href="tel:6120000000">
+            Realizar una llamada
+        </a>
+
+        <br>
+        <a href="index.html">
+            Ir a Home
+        </a>
+
+        <br>
+        <a href="#footer">
+            Ir a Footer
+        </a>
+
+        <br>
+        <a href="about.html">
+            Ir a Bio
+        </a>
+        
+        <br>
+        <a href="contact.html">
+            Ir a Contacto
+        </a>
+
+        <br>
+        <a href="views/work.html">
+            Ir a CV
+        </a>
+
+        <br>
+        <a href="form.html">
+            Ir a Formulario
+        </a>
+    </div>
+</body>
+</html>
