@@ -11,7 +11,6 @@
     <h1>
         Formulario
     </h1>
-
     
     <p>
         Lorem ipsum dolor sit amet consectetur adipiscing elit primis auctor, 
@@ -29,35 +28,37 @@
 
     <hr>
     
-    <form>
-        <label for="name">
-            Ingrese su nombre:
-        </label>
-        <input type="text" id="name" name="name" placeholder="Ej. Mario" minlength="5" maxlength="15" required>
-            
-        <br><br>
-        <label for="email">
-            Correo electrónico:
-        </label>
-        <input type="email" id="email" name="email" placeholder="Ej. aquisi@gmail.com" required>
+    <div id="formulario">
+        <form>
+            <label for="name">
+                Ingrese su nombre:
+            </label>
+            <input type="text" id="name" name="name" placeholder="Ej. Mario" minlength="5" maxlength="15" required>
+                
+            <br><br>
+            <label for="email">
+                Correo electrónico:
+            </label>
+            <input type="email" id="email" name="email" placeholder="Ej. aquisi@gmail.com" required>
 
-        <br><br>
-        <label for="telephone">
-            Solo números:
-        </label>
-        <input type="text" id="telephone" name="telephone" pattern="[0-9]+" placeholder="Ej. 123456789" minlength="10" maxlength="10">
+            <br><br>
+            <label for="telephone">
+                Teléfono:
+            </label>
+            <input type="text" id="telephone" name="telephone" pattern="[0-9]+" placeholder="Ej. 123456789" minlength="10" maxlength="10">
 
-        <br><br>
-        <label for="idUsuario">
-            ID de Usuario (No modificable):
-        </label>
-        <input type="text" id="idUsuario" name="idUsuario" value="WALL-E" disabled>
+            <br><br>
+            <label for="idUsuario">
+                ID de Usuario (No modificable):
+            </label>
+            <input type="text" id="idUsuario" name="idUsuario" value="WALL-E" disabled>
 
-        <br><br>
-        <button type="submit">
-            Enviar
-        </button>
-    </form>
+            <br><br>
+            <button type="submit">
+                Enviar
+            </button>
+        </form>
+    </div>
 
     <div id="enlaces">
         <br>
