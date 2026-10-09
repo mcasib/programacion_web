@@ -1,5 +1,5 @@
 p{
-    background-color: yellow;
+    background-color: burlywood;
 }
 
 .my_parag:hover{
@@ -16,4 +16,23 @@ ul li:first-child{
 
 ol li:last-child{
     background-color: #FFDAB9;
+}
+
+@font-face {
+    font-family: "myStyle";
+    src: url("../fonts/Stay_With_Me.otf");
+}
+
+h1{
+    font-family: "myStyle";
+}
+
+.my_p_w_shadow{
+    text-transform: uppercase;
+    text-shadow: aqua 1px 1px 1px;
+}
+
+p{
+    text-align: justify;
+    text-decoration: purple wavy underline;
 }
