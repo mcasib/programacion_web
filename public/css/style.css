@@ -1,9 +1,16 @@
 p{
     background-color: burlywood;
+    border: 5px dotted royalblue;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+h2, h3, h4 {
+    margin: 3px;
 }
 
 .my_parag:hover{
-    background-color: red;
+    background-color: royalblue;
 }
 
 ul{
