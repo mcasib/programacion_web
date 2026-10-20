@@ -5,6 +5,68 @@ p{
     padding: 8px;
 }
 
+.container > div {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: palevioletred;
+    border: 2px solid chartreuse;
+}
+
+.one {
+    text-align: center;
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+
+.two {
+    text-align: center;
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.three {
+    text-align: center;
+    grid-column: 3 / 4;
+    grid-row: 2 / 5;
+}
+
+.four {
+    text-align: center;
+    grid-column: 1 / 2S;
+    grid-row: 3;
+}
+
+.five {
+    text-align: center;
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+
+.six {
+    text-align: center;
+    grid-column: 1 / 2;
+    grid-row: 4;
+}
+
+.seven {
+    text-align: center;
+    grid-column: 2 / 3;
+    grid-row: 4;
+}
+
+.eight {
+    text-align: center;
+    grid-column: 1 / 4;
+    grid-row: 5;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(75px, auto);
+    gap: 10px;
+}
+
 h2, h3, h4 {
     margin: 3px;
 }
