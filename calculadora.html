@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+       Calculadora
+    </title>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+</head>
+<body>
+    <div class="calculadora">
+        <div class="head">
+            <label id="calculadora_data">
+                0
+            </label>
+        </div>
+        <div class="body">
+            <button onclick="_clear()">
+                C
+            </button>
+            <button onclick="clearEntry()">
+                CE
+            </button>
+            <button onclick="setOperation('/')">
+                /
+            </button>
+            <button onclick="setOperation('*')">
+                *
+            </button>
+            <button onclick="addNumber(7)">
+                7
+            </button>
+            <button onclick="addNumber(8)">
+                8
+            </button>
+            <button onclick="addNumber(9)">
+                9
+            </button>
+            <button onclick="setOperation('-')">
+                -
+            </button>
+            <button onclick="addNumber(4)">
+                4
+            </button>
+            <button onclick="addNumber(5)">
+                5
+            </button>
+            <button onclick="addNumber(6)">
+                6
+            </button>
+            <button onclick="setOperation('+')">
+                +
+            </button>
+            <button onclick="addNumber(1)">
+                1
+            </button>
+            <button onclick="addNumber(2)">
+                2
+            </button>
+            <button onclick="addNumber(3)">
+                3
+            </button>
+            <button class="igual" onclick="setOperation('=')">
+                =
+            </button>
+            <button class="cero" onclick="addNumber(0)">
+                0
+            </button>
+            <button class="punto" onclick="addDecimal()">
+                .
+            </button>
+        </div>
+    </div>
+</body>
+<script>
+    var nuevoNumero = true;
+
+    function _clear() 
+    {
+        let data = document.getElementById("calculadora_data");
+        data.innerHTML = "0";
+        nuevoNumero = true;
+    }
+
+    function clearEntry() 
+    {
+        let data = document.getElementById("calculadora_data");
+        data.innerHTML = "0";
+        nuevoNumero = true;
+    }
+
+    function addNumber(value) 
+    {
+        let data = document.getElementById("calculadora_data");
+
+        if (nuevoNumero || data.innerHTML === "0" || data.innerHTML === "Error") {
+            data.innerHTML = value;
+            nuevoNumero = false;
+        } else {
+            data.innerHTML += value;
+        }
+    }
+
+    function addDecimal() 
+    {
+        let data = document.getElementById("calculadora_data");
+
+        if (nuevoNumero || data.innerHTML === "Error") {
+            data.innerHTML = "0.";
+            nuevoNumero = false;
+        } else {
+            let parts = data.innerHTML.split(/[\+\-\*\/]/);
+            let lastPart = parts[parts.length - 1];
+
+            if (!lastPart.includes(".")) {
+                data.innerHTML += ".";
+            }
+        }
+    }
+
+    function setOperation(_ope) 
+    {
+        let data = document.getElementById("calculadora_data");
+
+        if (data.innerHTML === "Error") {
+            return;
+        }
+
+        if (_ope === "=") {
+            let resultado = eval(data.innerHTML);
+
+            if (!isFinite(resultado)) {
+                data.innerHTML = "Error";
+            } else {
+                data.innerHTML = resultado;
+            }
+            nuevoNumero = true;
+        } else {
+            data.innerHTML += _ope;
+            nuevoNumero = false;
+        }
+    }
+</script>
+</html>
