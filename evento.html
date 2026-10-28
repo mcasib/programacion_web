@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Eventos
+    </title>
+</head>
+<body>
+    <div>	
+		<form>
+			<fieldset>
+				<legend>Nombres</legend>
+				<input type="text" name="" onkeydown="return soloLetras(event)" required>
+			</fieldset>
+
+			<fieldset>
+				<legend>Apellidos</legend>
+                <input type="text" name="" onkeydown="return soloLetras(event)" required>
+			</fieldset>
+
+			<fieldset>
+				<legend>Teléfono</legend>
+                <input type="text" name="" onkeydown="return soloNumeros(event)" required>
+			</fieldset>
+
+			<fieldset>
+				<legend>Correo electrónico</legend>
+                <input type="email" name="" onkeydown="return prevenirEspacios(event)" required>
+			</fieldset>
+
+			<fieldset>
+				<legend>Género</legend>
+                <label><input type="radio" name="" value="Femenino" required> Femenino</label>
+                <label><input type="radio" name="" value="Masculino"> Masculino</label>
+                <label><input type="radio" name="" value="Otro"> Otro</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>Biografía</legend>
+                <textarea id="biografia" rows="4" maxlength="200" oninput="actualizarContador()" required></textarea>
+                <div class="contador">Caracteres: <span id="contadorCaracteres">0</span></div>
+			</fieldset>
+
+			<button type="submit">
+				Guardar cambios
+			</button>
+		</form>
+
+	</div>
+
+	<button onclick="cambiarColor()">
+		Cambiar color
+	</button>
+
+	<script>
+
+		function soloLetras(e) 
+        {
+		    var tecla = e.key.toLowerCase();
+		    return /^[a-zñáéíóúü\s]$/i.test(tecla);
+		}
+
+		function soloNumeros(e) 
+        {
+		    var tecla = e.key.toLowerCase();
+		    return /^[0-9.]$/.test(tecla);
+		}
+
+        function prevenirEspacios(e) 
+        {
+            if (e.key === " ") {
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        function actualizarContador() 
+        {
+            var biografia = document.getElementById("biografia");
+            var contador = document.getElementById("contadorCaracteres");
+            contador.textContent = biografia.value.length;
+        }
+		
+		function cambiarColor()
+		{
+			document.body.style.backgroundColor = getRandomColor()
+		}
+
+		function getRandomColor() 
+        {
+		  var letters = '0123456789ABCDEF';
+		  var color = '#';
+		  for (var i = 0; i < 6; i++) {
+		    color += letters[Math.floor(Math.random() * 16)];
+		  }
+		  return color;
+		}
+
+	</script>
+</body>
+</html>
