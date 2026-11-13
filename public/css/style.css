@@ -178,3 +178,114 @@ p{
     grid-column: 3;
     grid-row: 5;
 }
+
+/*TO DO*/
+
+.todo {
+    min-height: 650px;
+    background: linear-gradient(
+        to bottom,
+        #ffa5d5 50%,
+        #5ee651 50%
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+}
+
+.todo * {
+    box-sizing: border-box;
+}
+
+.todo .conteiner {
+    background-color: #f0f8fa;
+    width: 450px;
+    min-height: 400px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.todo h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.todo .head_list {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.todo .head_list input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background: transparent;
+    outline: none;
+}
+
+.todo .head_list button {
+    padding: 12px 20px;
+    background-color: #5ee651;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.todo .element_list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.todo .element_list input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.todo .element_list label {
+    flex: 1;
+    color: #333;
+}
+
+.todo .completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo .element_list button {
+    padding: 7px 12px;
+    background-color: #e05252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo button:hover {
+    opacity: 0.8;
+}
+
+.todo .element_list button {
+    padding: 7px 12px;
+    background-color: #e05252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo .element_list button:hover {
+    opacity: 0.8;
+}

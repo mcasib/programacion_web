@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        To Do
+    </title>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+
+</head>
+<body>
+    <div class="todo">
+        <div class="conteiner">	 
+            <div class="head_list">
+                <input id="title_element" type="text" name="" >
+                <button onclick="updateList()">
+                    Add
+                </button>
+            </div>
+
+            <div id="content_list">
+                    <input type="radio" name="">
+                    <label>text</label>
+                </div>
+            </div>
+        </div>
+ 
+        <script>	
+            showList()
+
+            function updateList() {
+
+                var data = localStorage.getItem("data_list");
+                data = JSON.parse(data)
+
+                if (data === null) {
+                    data = [];
+                }
+                
+                let element = {
+                    title: document.getElementById('title_element').value ,
+                    status: false
+                };
+
+                data.push(element);
+
+                localStorage.setItem("data_list", JSON.stringify(data));
+
+                showList()
+            }
+            
+            function showList()
+            {
+                var data = localStorage.getItem("data_list");
+                data = JSON.parse(data);
+
+                if (data === null) {
+                    data = [];
+                }
+
+                document.getElementById('content_list').innerHTML = "";
+
+                data.forEach((element, index) => {
+
+                    let element_list = '<div class="element_list">' +
+                    '<input type="checkbox" '+(element.status ? "checked" : "")+' onchange="completeTask('+index+')">' +
+                    '<label class="'+(element.status ? "completed" : "")+'">'+element.title+'</label>' +
+                    '<button onclick="deleteTask('+index+')">Delete</button>' +
+                    '</div>';
+
+                    document.getElementById('content_list').innerHTML += element_list;
+                });
+            }
+
+            function deleteTask(index) {
+
+                var data = JSON.parse(localStorage.getItem("data_list"));
+
+                data.splice(index, 1);
+
+                localStorage.setItem("data_list", JSON.stringify(data));
+
+                showList();
+            }
+
+            function completeTask(index) {
+
+                var data = JSON.parse(localStorage.getItem("data_list"));
+
+                data[index].status = !data[index].status;
+
+                localStorage.setItem("data_list", JSON.stringify(data));
+
+                showList();
+            }
+        </script>
+    </div>
+</body>
+</html>
