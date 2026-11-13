@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+</head>
+<body>
+    <div class="rickymorty">
+
+        <h1>Personajes de <span>Rick and Morty</span></h1>
+
+        <p class="subtitle">
+            Explora el multiverso, encuentra a tus personajes favoritos
+            o deja que el azar elija tu próximo descubrimiento.
+        </p>
+
+        <div class="container">
+            <div class="search">
+                <h2>Busca un personaje</h2>
+
+                <p>
+                    Escribe un nombre para consultar la API o descubre
+                    un personaje completamente aleatorio.
+                </p>
+
+                <label for="nombre">Nombre del personaje</label>
+
+                <input type="text" id="nombre"
+                    placeholder="Ej. Morty Smith">
+
+                <button id="buscar">
+                    Buscar por nombre
+                </button>
+
+                <button id="aleatorio">
+                    Personaje aleatorio
+                </button>
+
+                <div class="hint">
+                    <br>
+                    <p>
+                        <strong>Dato curioso</strong>
+                    </p>
+                    <p>
+                        Puedes buscar nombres completos o solo una parte.
+                        ¡Prueba con "Summer", "Rick" o "Birdperson"!
+                    </p>
+                </div>
+            </div>
+
+            <div class="result">
+                <h2>Resultado de búsqueda</h2>
+
+                <div id="conteiner">
+                    <p>Busca un personaje para mostrar su información.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchCharacter() {
+            let name = document.getElementById('nombre').value;
+
+            if (name.trim() === "") {
+                showError("Escribe el nombre de un personaje.");
+                return;
+            }
+
+            fetch('https://rickandmortyapi.com/api/character/?name=' + encodeURIComponent(name))
+                .then(respuesta => {
+                    if (!respuesta.ok) {
+                        throw new Error("Personaje no encontrado");
+                    }
+                    return respuesta.json();
+                })
+                .then(datos => showCharacter(datos.results[0]))
+                .catch(error => showError("Personaje no encontrado. Intenta de nuevo."));
+
+        }
+
+        function getCharacterData() {
+
+            let target = Math.floor(Math.random() * 826) + 1;
+
+            fetch('https://rickandmortyapi.com/api/character/' + target)
+                .then(respuesta => respuesta.json())
+                .then(datos => showCharacter(datos))
+                .catch(error => showError("No se pudo cargar el personaje. Intenta de nuevo."));
+
+        }
+
+        function showCharacter(datos) {
+            let code = '<div class="character">' +
+                '<img src="' + datos.image + '">' +
+                '<div class="character-info">' +
+                '<h2>' + datos.name + '</h2>' +
+                '<span class="tag">Especie: ' + datos.species + '</span>' +
+                '<span class="tag">● ' + datos.status + '</span>' +
+                '</div></div>';
+
+            document.getElementById('conteiner').innerHTML = code;
+        }
+
+        function showError(message) {
+            document.getElementById('conteiner').innerHTML =
+                '<div class="error">' + message + '</div>';
+        }
+
+        document.getElementById('buscar').addEventListener('click', searchCharacter);
+
+        document.getElementById('aleatorio').addEventListener('click', getCharacterData);
+
+        document.getElementById('nombre').addEventListener('keypress', function(event) {
+
+            if (event.key === "Enter") {
+                searchCharacter();
+            }
+        });
+    </script>
+</body>
+</html>

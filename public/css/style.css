@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b171e;
+}
+
 p{
     background-color: burlywood;
     border: 5px dotted royalblue;
@@ -288,4 +294,183 @@ p{
 
 .todo .element_list button:hover {
     opacity: 0.8;
+}
+
+/*RICK AND MORTY*/
+.rickymorty {
+    box-sizing: border-box;
+    padding: 20px 30px;
+    font-family: Arial, sans-serif;
+    background-color: #0b1e15;
+    color: #f1f7fa;
+}
+
+.rickymorty * {
+    box-sizing: border-box;
+}
+
+.rickymorty h1 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 45px;
+    margin: 0 0 10px;
+}
+
+.rickymorty h1 span {
+    color: #b9ed68;
+}
+
+.rickymorty .subtitle {
+    text-align: center;
+    color: #a9bbc2;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.rickymorty p {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    color: #a9bbc2;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.rickymorty .container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    background-image: none;
+    align-items: stretch;
+}
+
+.rickymorty .search,
+.rickymorty .result {
+    background-color: #193015;
+    border: 1px solid #354d59;
+    border-radius: 25px;
+    padding: 30px;
+    width: calc(50% - 15px);
+}
+
+.rickymorty h2 {
+    font-size: 25px;
+    margin: 0 0 15px 0;
+}
+
+.rickymorty label {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.rickymorty input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #526b76;
+    background-color: #0e2511;
+    color: white;
+    font-size: 16px;
+}
+
+.rickymorty button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rickymorty #buscar {
+    background-color: #b9ed68;
+    color: #17251a;
+}
+
+.rickymorty #aleatorio {
+    background-color: transparent;
+    border: 1px solid #607984;
+    color: #e4f0f2;
+}
+
+.rickymorty button:hover {
+    opacity: 0.85;
+}
+
+.rickymorty .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rickymorty .result-header h2 {
+    margin: 0;
+}
+
+.rickymorty .result-badge {
+    background-color: #0e2511;
+    border: 1px solid #354d59;
+    color: #b9ed68;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.rickymorty .character {
+    border: 1px solid #405762;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #0e2511;
+}
+
+.rickymorty .character img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.rickymorty .character-info {
+    padding: 20px;
+}
+
+.rickymorty .character-info h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.rickymorty .tag {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #526b76;
+    border-radius: 10px;
+    margin-right: 8px;
+    color: #d7e4e8;
+    font-size: 14px;
+}
+
+.rickymorty .error {
+    text-align: center;
+    color: #ff8585;
+    padding: 30px;
+    font-size: 18px;
+}
+
+.rickymorty .hint {
+    font-size: 12px;
+    color: #9ab0b8;
 }
